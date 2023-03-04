@@ -1,0 +1,8 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+D:/huffman/B_ICC2018_priliminary_grad_cell_based/pattern1.dat and D:/huffman/B_ICC2018_priliminary_grad_cell_based/golden1.dat were used for this simulation.
+Check CNT : PASS
+Check HC : PASS
+Check M : PASS
+You PASS the contest now.
+$finish called at time : 1470 ns : File "D:/huffman/B_ICC2018_priliminary_grad_cell_based/tb.v" Line 175

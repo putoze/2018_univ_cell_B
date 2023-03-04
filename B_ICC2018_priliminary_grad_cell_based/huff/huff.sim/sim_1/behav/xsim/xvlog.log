@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/huffman/B_ICC2018_priliminary_grad_cell_based/huffman.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module huffman
+WARNING: [VRFC 10-756] identifier c_symbol is used before its declaration [D:/huffman/B_ICC2018_priliminary_grad_cell_based/huffman.v:74]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/huffman/B_ICC2018_priliminary_grad_cell_based/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
