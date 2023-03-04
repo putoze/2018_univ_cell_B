@@ -12,7 +12,7 @@ set_output_delay 0.5    -clock clk [all_outputs]
 set_load         0.1     [all_outputs]
 set_drive        1     [all_inputs]
 
-set_operating_conditions  -max slow  -min fast
+set_operating_conditions -max_library slow -max slow
 set_wire_load_model -name tsmc13_wl10 -library slow                        
 
 set_max_fanout 20 [all_inputs]

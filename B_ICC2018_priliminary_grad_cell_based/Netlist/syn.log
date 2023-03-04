@@ -1,0 +1,480 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version N-2017.09-SP2 for linux64 - Nov 27, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/rain/.synopsys_dv_prefs.tcl
+# Read all Files
+source synopsys_dc.setup
+Information: Variable 'hdlin_translate_off_skip_text' is obsolete and is being ignored. (INFO-100)
+Information: Variable 'hdlin_enable_presto_for_vhdl' is obsolete and is being ignored. (INFO-100)
+Information: Variable 'hdlin_enable_presto_for_vhdl' is obsolete and is being ignored. (INFO-100)
+1
+read_verilog huffman.v
+Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/slow.db'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/gtech.db'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/standard.sldb'
+  Loading link library 'slow'
+  Loading link library 'gtech'
+Loading verilog file '/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v
+Warning:  /home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v:75: A unnamed generate block with an LRM-defined name 'genblk1' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v:82: A unnamed generate block with an LRM-defined name 'genblk2' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v:196: signed to unsigned assignment occurs. (VER-318)
+Warning:  /home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v:251: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 122 in file
+	'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           124            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 310 in file
+	'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           323            |    auto/auto     |
+|           336            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine huffman line 110 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   l1_curState_reg   | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   l1_curState_reg   | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine huffman line 152 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| bubble_sort_st_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine huffman line 162 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    sort_cnt_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine huffman line 169 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      c_cnt_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine huffman line 178 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   global_cnt_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine huffman line 190 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   a_sequence_reg    | Flip-flop |  65   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   a_sequence_reg    | Flip-flop |   7   |  Y  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine huffman line 244 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   c_sequence_reg    |   Latch   |  12   |  Y  | N  | Y  | N  | -  | -  | -  |
+|   c_sequence_reg    |   Latch   |   8   |  Y  | N  | N  | Y  | -  | -  | -  |
+|   c_sequence_reg    | Flip-flop |  40   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine huffman line 267 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      code_reg       | Flip-flop |  83   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine huffman line 290 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    mask_ptr_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine huffman line 310 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      mask_reg       | Flip-flop |  48   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine huffman line 384 in file
+		'/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       M4_reg        | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       M5_reg        | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   code_valid_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       HC6_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       HC1_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       HC2_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       HC3_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       HC4_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       HC5_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       M6_reg        | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       M1_reg        | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       M2_reg        | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       M3_reg        | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.db:huffman'
+Loaded 1 design.
+Current design is 'huffman'.
+huffman
+current_design huffman
+Current design is 'huffman'.
+{huffman}
+link
+
+  Linking design 'huffman'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  huffman                     /home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/huffman.db
+  slow (library)              /usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/slow.db
+  dw_foundation.sldb (library) /usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb
+
+1
+# Setting Clock Constraits
+source -echo -verbose huffman.sdc
+# operating conditions and boundary conditions #
+set cycle  10.0        ;#clock period defined by designer
+10.0
+create_clock -period $cycle [get_ports  clk]
+1
+set_dont_touch_network      [get_clocks clk]
+1
+set_clock_uncertainty  0.1  [get_clocks clk]
+1
+set_clock_latency      0.5  [get_clocks clk]
+1
+set_input_delay  5      -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
+1
+set_output_delay 0.5    -clock clk [all_outputs] 
+1
+set_load         0.1     [all_outputs]
+1
+set_drive        1     [all_inputs]
+1
+set_operating_conditions -max_library slow -max slow
+Using operating conditions 'slow' found in library 'slow'.
+1
+set_wire_load_model -name tsmc13_wl10 -library slow                        
+1
+set_max_fanout 20 [all_inputs]
+1
+1
+# Synthesis all design
+compile -map_effort high -area_effort high
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | N-2017.09-DWBB_201709.2 |     *     |
+| Licensed DW Building Blocks        | N-2017.09-DWBB_201709.2 |     *     |
+============================================================================
+
+
+Information: There are 18 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'huffman'
+Information: Added key list 'DesignWare' to design 'huffman'. (DDB-72)
+Information: The register 'c_sequence_reg[0][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[0][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[0][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[0][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[1][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[1][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[1][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[1][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[2][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[2][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[2][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[2][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[3][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[3][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[3][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[3][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[4][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[4][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[4][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'c_sequence_reg[4][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[0][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[0][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[1][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[1][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[2][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[2][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[3][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[3][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[4][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[4][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[5][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mask_reg[5][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M4_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M4_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M5_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M5_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M6_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M6_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M1_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M1_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M2_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M2_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M3_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'M3_reg[6]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'huffman_DW01_inc_0'
+  Processing 'huffman_DW01_inc_1'
+  Processing 'huffman_DW01_add_0'
+  Processing 'huffman_DW01_inc_2'
+  Processing 'huffman_DW01_inc_3'
+  Processing 'huffman_DW01_inc_4'
+  Processing 'huffman_DW01_inc_5'
+  Processing 'huffman_DW01_inc_6'
+  Processing 'huffman_DW01_inc_7'
+  Processing 'huffman_DW01_inc_8'
+  Processing 'huffman_DW01_dec_0'
+  Processing 'huffman_DW01_inc_9'
+  Processing 'huffman_DW01_inc_10'
+  Mapping 'huffman_DW_cmp_0'
+  Mapping 'huffman_DW_cmp_1'
+  Mapping 'huffman_DW_cmp_2'
+  Mapping 'huffman_DW_cmp_3'
+  Mapping 'huffman_DW_cmp_4'
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:03   34121.1      0.00       0.0      63.9                          
+    0:00:03   34121.1      0.00       0.0      63.9                          
+    0:00:03   34121.1      0.00       0.0      63.9                          
+    0:00:03   34121.1      0.00       0.0      63.9                          
+    0:00:03   34121.1      0.00       0.0      63.9                          
+    0:00:04   22930.2      1.52      59.4      62.5                          
+    0:00:04   22982.8      0.76      22.8      62.1                          
+    0:00:04   22969.2      0.33       4.6      57.3                          
+    0:00:04   22993.0      0.00       0.0      57.3                          
+    0:00:04   22957.3      0.65       6.4      57.3                          
+    0:00:04   23001.5      0.00       0.0      57.3                          
+    0:00:04   22965.8      0.73      11.7      57.3                          
+    0:00:04   23016.7      0.00       0.0      57.3                          
+    0:00:04   22987.9      0.18       1.3      57.3                          
+    0:00:04   23021.8      0.00       0.0      57.0                          
+    0:00:04   23021.8      0.00       0.0      57.0                          
+    0:00:04   23021.8      0.00       0.0      57.0                          
+    0:00:04   23021.8      0.00       0.0      57.0                          
+    0:00:04   23125.4      0.00       0.0      39.2                          
+    0:00:04   23171.2      0.00       0.0      33.4                          
+    0:00:04   23206.9      0.00       0.0      28.5                          
+    0:00:04   23230.6      0.00       0.0      24.8                          
+    0:00:04   23247.6      0.00       0.0      21.7                          
+    0:00:04   23261.2      0.00       0.0      18.6                          
+    0:00:04   23274.7      0.00       0.0      15.5                          
+    0:00:04   23288.3      0.00       0.0      12.4                          
+    0:00:04   23301.9      0.00       0.0       9.3                          
+    0:00:04   23301.9      0.00       0.0       9.3                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:04   23301.9      0.00       0.0       9.3                          
+    0:00:04   23301.9      0.00       0.0       9.3                          
+    0:00:05   22682.4      0.00       0.0      23.8                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:05   22682.4      0.00       0.0      23.8                          
+    0:00:05   22931.9      0.00       0.0       6.5 M1[5]                    
+    0:00:05   23211.9      0.00       0.0       0.0 n1005                    
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:05   23211.9      0.00       0.0       0.0                          
+    0:00:05   23211.9      0.00       0.0       0.0                          
+    0:00:05   22858.9      0.00       0.0       0.0                          
+    0:00:05   22714.6      0.00       0.0       0.0                          
+    0:00:05   22643.3      0.00       0.0       0.0                          
+    0:00:05   22622.9      0.00       0.0       0.0                          
+    0:00:05   22602.6      0.00       0.0       0.0                          
+    0:00:05   22602.6      0.00       0.0       0.0                          
+    0:00:05   22602.6      0.00       0.0       0.0                          
+    0:00:05   22577.1      0.02       0.1       0.0                          
+    0:00:05   22577.1      0.02       0.1       0.0                          
+    0:00:05   22577.1      0.02       0.1       0.0                          
+    0:00:05   22577.1      0.02       0.1       0.0                          
+    0:00:05   22577.1      0.02       0.1       0.0                          
+    0:00:05   22577.1      0.02       0.1       0.0                          
+    0:00:05   22543.2      0.00       0.0       0.0                          
+Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/slow.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+compile -map_effort high -area_effort high -inc
+
+Information: There are 15 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+  Selecting implementations
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00   22626.3      0.00       0.0       2.2                          
+    0:00:00   22643.3      0.00       0.0       2.2                          
+    0:00:01   22149.4      0.00       0.0      16.9                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01   22149.4      0.00       0.0      16.9                          
+    0:00:01   22202.0      0.00       0.0       6.8 M1[1]                    
+    0:00:01   22475.3      0.00       0.0       0.0 n2071                    
+    0:00:01   22475.3      0.00       0.0       0.0                          
+Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/slow.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+write -format ddc  -hierarchy -output "./Netlist/huffman_syn.ddc"
+Writing ddc file './Netlist/huffman_syn.ddc'.
+1
+write_sdf ./Netlist/huffman_syn.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/Netlist/huffman_syn.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+write_file -format verilog -hierarchy -output ./Netlist/huffman_syn.v
+Writing verilog file '/home/rain/IC_contest/B_ICC2018_priliminary_grad_cell_based/Netlist/huffman_syn.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+report_area > ./Report/area.log
+report_timing > ./Report/timing.log
+report_qor > ./Report/huffman_syn.qor
+#======================================================
+#  Finish and Quit
+#======================================================
+exit
+
+Thank you...

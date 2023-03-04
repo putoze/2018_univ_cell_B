@@ -2,23 +2,21 @@
 // version 0.91% move the section of initial $sdf_annotate
 `timescale 1ns/10ps
 `define CLK_period 10                // CLK period. DO NOT modify period
-`define SDFFILE "./huffman_syn.sdf"  // Modify your sdf file name
-
-`define tb1
+`define SDFFILE "./Netlist/huffman_syn.sdf"  // Modify your sdf file name
 
 `ifdef tb1
-  `define PAT "D:/huffman/B_ICC2018_priliminary_grad_cell_based/pattern1.dat"
-  `define EXP "D:/huffman/B_ICC2018_priliminary_grad_cell_based/golden1.dat"
+  `define PAT "./dat/pattern1.dat"
+  `define EXP "./dat/golden1.dat"
 `endif
 
 `ifdef tb2
-  `define PAT "D:/huffman/B_ICC2018_priliminary_grad_cell_based/pattern2.dat"
-  `define EXP "D:/huffman/B_ICC2018_priliminary_grad_cell_based/golden2.dat"
+  `define PAT "./dat/pattern2.dat"
+  `define EXP "./dat/golden2.dat"
 `endif
 
 `ifdef tb3
-  `define PAT "D:/huffman/B_ICC2018_priliminary_grad_cell_based/pattern3.dat"
-  `define EXP "D:/huffman/B_ICC2018_priliminary_grad_cell_based/golden3.dat"
+  `define PAT "./dat/pattern3.dat"
+  `define EXP "./dat/golden3.dat"
 `endif
 
 //`ifdef tb4
@@ -30,6 +28,14 @@
 //  `define PAT "./pattern5.dat"
 //  `define EXP "./golden5.dat"
 //`endif
+
+`ifdef RTL
+  `include "huffman.v"
+`endif
+
+`ifdef GATE
+  `include "./Netlist/huffman_syn.v"
+`endif
 
 
 module tb;
@@ -57,16 +63,17 @@ wire [47:0] CNT_G, CNT_EXP;
 wire [47:0] HC_G, HC_EXP;
 wire [47:0] M_G, M_EXP;
 
-
-`ifdef SDF
-  initial $sdf_annotate(`SDFFILE, u_huffman);
-`endif
-
-//initial begin
-//$fsdbDumpfile("huffman.fsdb");
-//$fsdbDumpvars;
-//end
-
+initial begin
+  `ifdef RTL
+	$fsdbDumpfile("huffman.fsdb");
+	$fsdbDumpvars(0,"+mda");
+  `endif
+  `ifdef GATE
+      	$sdf_annotate(`SDFFILE, u_huffman);
+    	$fsdbDumpfile("Netlist/huffman_syn.fsdb");
+	$fsdbDumpvars(0,"+mda"); 
+  `endif
+end
 
 huffman u_huffman(.clk(CLK), .reset(reset), .gray_valid(gray_valid), .gray_data(gray_data),
     .CNT_valid(CNT_valid), 

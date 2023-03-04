@@ -21,10 +21,9 @@ genvar idx;
 //  PARAMETERS
 //==================
 parameter BYTE          = 8 ;
-parameter DATA_WIDTH    = 3 ;
+parameter DATA_WIDTH    = 4 ;
 parameter TABLE_SIZE    = 12;
 parameter CNT_WIDTH     = 8 ;
-parameter C_TABLE_SIZE  = 28;
 
 //==================
 //  stateS
@@ -50,9 +49,10 @@ wire state_DONE             = l1_curState[4];
 //================================
 //  TABLES
 //================================
-reg  [11:0] a_sequence[0:5];
-reg  [19:0] c_sequence[0:4];
-reg  [7:0] code [0:10];
+reg  [TABLE_SIZE-1:0] a_sequence[0:5];
+reg  [TABLE_SIZE-1:0] c_sequence[0:4];
+reg  [BYTE-1:0] code [0:10];
+reg  [BYTE-1:0] mask [0:5];
 
 //================================
 //  COUNTERS
@@ -60,28 +60,17 @@ reg  [7:0] code [0:10];
 reg [CNT_WIDTH-1:0] global_cnt;
 reg [CNT_WIDTH-1:0] sort_cnt;
 reg [CNT_WIDTH-1:0] c_cnt;
-
-//================================
-//  CONTROL FLAGS
-//================================
-wire rd_data_done_f = global_cnt == 100;
-wire sort_done_f = sort_cnt == 5;
-wire allTableCombined_f = c_cnt == 4;
-wire backTrackDone_f = c_cnt == 0 && state_BACKTRACK;
-reg  bubble_sort_st;
-
-//operator
-wire [7:0] ls_c_symbol = code[c_symbol[c_cnt]] << 1;//left shift
+reg [CNT_WIDTH-1:0] mask_ptr;
 
 //================================
 //        wire observation
 //================================
-wire [3:0] a_symbol[0:5];
-wire [7:0] a_probalility[0:5];
-wire [3:0] c_idx0[0:4];
-wire [3:0] c_idx1[0:4];
-wire [3:0] c_symbol[0:4];
-wire [7:0] c_probalility[0:4];
+wire [DATA_WIDTH-1:0] a_symbol[0:5];
+wire [DATA_WIDTH-1:0] c_idx0[0:4];
+wire [DATA_WIDTH-1:0] c_idx1[0:4];
+wire [DATA_WIDTH-1:0] c_symbol[0:4];
+wire [BYTE-1:0] a_probalility[0:5];
+
 generate
     for (idx = 0; idx < 6; idx=idx+1) begin
         assign a_symbol[idx]      = a_sequence[idx][11:8];
@@ -91,13 +80,25 @@ endgenerate
 
 generate
     for (idx = 0; idx < 5; idx=idx+1) begin
-        assign c_idx0[idx]        = c_sequence[idx][19:16];
-        assign c_idx1[idx]        = c_sequence[idx][15:12];
+        assign c_idx0[idx]        = c_sequence[idx][7:4];
+        assign c_idx1[idx]        = c_sequence[idx][3:0];
         assign c_symbol[idx]      = c_sequence[idx][11:8 ];
-        assign c_probalility[idx] = c_sequence[idx][7:0];
     end
 endgenerate
 
+//================================
+//  CONTROL FLAGS
+//================================
+wire rd_data_done_f     = global_cnt == 100;
+wire sort_done_f        = sort_cnt == 5;
+wire allTableCombined_f = c_cnt == 4;
+wire backTrackDone_f    = c_cnt == 0 && state_BACKTRACK;
+reg  bubble_sort_st;
+
+//operator
+wire [7:0] ls_c_symbol  = code[c_symbol[c_cnt]] << 1;//left shift
+wire c_larger_index_lt  = c_idx0[c_cnt] > 5;
+wire c_smaller_index_lt = c_idx1[c_cnt] > 5;
 
 //================================================================
 //  MAIN DESIGN
@@ -244,19 +245,18 @@ always @(posedge clk or posedge reset)
 begin
     if(reset)
     begin
+        c_sequence[4] <= 'd0;
         for(i=0;i<4;i=i+1)
         begin
             c_sequence[i][11:8]  <= i+6;
             c_sequence[i][7:0]   <= 'd0;
-            c_sequence[i][19:12] <= 'd0;
         end
-        c_sequence[4] <= 'd0;
     end
     else if(state_COMBINE)
     begin
         //larger in index 0 of c element
-        c_sequence[c_cnt][19:16] <= a_symbol[4];
-        c_sequence[c_cnt][15:12] <= a_symbol[5];
+        c_sequence[c_cnt][7:4] <= a_symbol[4];
+        c_sequence[c_cnt][3:0] <= a_symbol[5];
     end
 end
 
@@ -287,11 +287,6 @@ begin
     end
 end
 
-reg [2:0] mask_ptr;
-
-wire c_larger_index_lt  = c_idx0[c_cnt] > 5;
-wire c_smaller_index_lt = c_idx1[c_cnt] > 5;
-
 always@(posedge clk or posedge reset)
 begin
     if(reset)
@@ -311,8 +306,6 @@ begin
         mask_ptr <= mask_ptr;
     end
 end
-
-reg[7:0] mask[0:5];
 
 always@(posedge clk or posedge reset)
 begin
@@ -360,6 +353,7 @@ begin
         end
     end
 end
+
 //================================
 //        I/O
 //================================
